@@ -1,27 +1,59 @@
 # DSN Bootcamp ML Track - Sales Prediction
 
 ## Problem Statement
-Predict total sales for products at different DSN Mart store locations using historical sales data.
+Predict total product sales at DSN Mart store locations based on product and outlet characteristics. This model helps optimize inventory, pricing, and store investment decisions across Nigeria's retail network.
+
+## Dataset Overview
+- **Training Data:** 6,818 records × 13 features
+- **Target Variable:** `total_sales` (complete, no missing values)
+
+## Data Quality
+| Feature | Missing (%) | Issue |
+|---------|------------|-------|
+| product_weight_kg | 17.97% | Will impute with median |
+| store_size | 28.15% | Will impute with mode |
+| All Others | 0% | Clean |
+
+## Feature Breakdown
+
+**Numerical Features (5):**
+- product_weight_kg, shelf_visibility, product_price, store_age_years, total_sales
+
+**Categorical Features (8):**
+- Fat Content: 2 categories (Low Fat, Regular)
+- Product Category: 48 categories (inconsistent casing — needs standardization)
+- Store Size: 3 categories (Large, Small, Medium) + missing values
+- Store Location Tier: 3 tiers (Tier 1, Tier 2, Tier 3)
+- Store Format: 4 types (Standard Supermarket: 4,462 | Corner Shop: 866 | Flagship Hypermarket: 748 | Superstore: 742)
+
+## Key Insights from EDA
+
+**Strongest Driver of Sales:**
+- `product_price` shows strongest correlation with total_sales (r = 0.57)
+- Other numerical features have weak correlation
+
+**Data Patterns:**
+- Standard Supermarket dominates (65% of stores)
+- Tier 3 locations most common (39% of stores)
+- Product categories need standardization (mixed case, spelling variations)
 
 ## Approach
-1. Exploratory Data Analysis — understand patterns
-2. Data Cleaning — handle missing values and outliers
-3. Feature Engineering — create meaningful features with scikit-learn Pipeline
-4. Model Selection — compare Linear Regression, Random Forest, XGBoost
-5. Hyperparameter Tuning — optimize best model
-6. Predictions — generate test set predictions
 
-## Key Insights
-(Fill this in after your EDA)
+1. **Data Cleaning** → Handle missing values, standardize product categories
+2. **Feature Engineering** → Encode categories, create interaction features
+3. **Model Selection** → Test Linear Regression, Random Forest, XGBoost
+4. **Hyperparameter Tuning** → Optimize best performer
+5. **Evaluation** → Minimize RMSE on test set
 
 ## Model Performance
-(Fill this in after training)
+(To be updated after training)
 
 ## How to Run
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run notebooks in order: 01, 02, 03, 04, 05
-3. Final predictions saved to `submissions/final_submission.csv`
+```bash
+pip install -r requirements.txt
+jupyter notebook
+# Run notebooks in order: 01 → 02 → 03 → 04 → 05
+```
 
 ## Author
-Paul
-Date: September 2026
+Paul | Data scientist | September 2026
