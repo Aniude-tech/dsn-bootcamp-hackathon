@@ -69,6 +69,21 @@ High VIF detected in 8 categorical features (store_size, store_location_tier, st
 **Result:** 28 total features originally 9 features before one hot encoding
 
 3. **Model Selection** → Test Linear Regression, Random Forest, XGBoost
+
+## Model Building & Evaluation
+
+**Models Tested:**
+1. Ridge Regression: 1123.44 RMSE (R² = 0.571)
+2. Random Forest: 1123.21 RMSE (R² = 0.572) — Overfitting detected
+3. XGBoost: 1107.12 RMSE (R² = 0.584) — **Best performer**
+
+**Key Findings:**
+- XGBoost provides best validation performance with lowest RMSE
+- Random Forest shows overfitting (Train RMSE: 587.4 vs Val RMSE: 1123.2)
+- Ridge Regression inadequate — linear relationships insufficient for sales prediction
+- Product price identified as strongest predictor of sales
+
+**Best Model Selected:** XGBoost Regressor
 4. **Hyperparameter Tuning** → Optimize best performer
 5. **Evaluation** → Minimize RMSE on test set
 
