@@ -54,6 +54,20 @@ Predict total product sales at DSN Mart store locations based on product and out
 **Result:** Clean dataset (6,818 rows, 0 missing values) ready for feature engineering
 
 2. **Feature Engineering** → Encode categories, create interaction features
+
+**Encoding Strategy:**
+- Numerical features: StandardScaler normalization
+- Categorical features: OneHotEncoder (4 categories × 5 features = expanded feature set)
+
+**Multicollinearity Analysis:**
+High VIF detected in 8 categorical features (store_size, store_location_tier, store_format). This is expected with one-hot encoding — categorical variables are inherently interdependent.
+
+**Mitigation Strategy:**
+- Tree-based models (Random Forest, XGBoost): **Not affected** — inherently robust to multicollinearity
+- Linear Regression: Uses **Ridge regularization** to handle multicollinearity
+- **No features dropped** — all information retained
+**Result:** 28 total features originally 9 features before one hot encoding
+
 3. **Model Selection** → Test Linear Regression, Random Forest, XGBoost
 4. **Hyperparameter Tuning** → Optimize best performer
 5. **Evaluation** → Minimize RMSE on test set
