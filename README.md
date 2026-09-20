@@ -40,6 +40,19 @@ Predict total product sales at DSN Mart store locations based on product and out
 ## Approach
 
 1. **Data Cleaning** → Handle missing values, standardize product categories
+
+## Data Cleaning
+
+**Missing Values Handled:**
+- product_weight_kg (17.97%) → Imputed with median
+- store_size (28.15%) → Imputed with mode (most frequent)
+
+**Data Quality Checks:**
+- No duplicate rows found
+- Product categories standardized to lowercase
+- Shelf visibility outlier (0.32) retained — represents high-visibility product placement
+**Result:** Clean dataset (6,818 rows, 0 missing values) ready for feature engineering
+
 2. **Feature Engineering** → Encode categories, create interaction features
 3. **Model Selection** → Test Linear Regression, Random Forest, XGBoost
 4. **Hyperparameter Tuning** → Optimize best performer
