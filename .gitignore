@@ -7,8 +7,6 @@ data/*.csv
 *.csv
 
 # Trained models
-models/*.pkl
-*.pkl
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
