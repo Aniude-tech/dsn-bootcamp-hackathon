@@ -85,10 +85,27 @@ High VIF detected in 8 categorical features (store_size, store_location_tier, st
 
 **Best Model Selected:** XGBoost Regressor
 4. **Hyperparameter Tuning** → Optimize best performer
-5. **Evaluation** → Minimize RMSE on test set
 
-## Model Performance
-(To be updated after training)
+**GridSearchCV on XGBoost:**
+- Parameters tuned: learning_rate, max_depth, n_estimators, subsample, colsample_bytree, min_child_weight
+- Cross-validation: 5-fold
+- Original XGBoost: 1107.12 RMSE
+- **Tuned XGBoost: 1090.41 RMSE (1.51% improvement)**
+
+## Final Model Performance
+
+**Tuned XGBoost Validation Results:**
+- Validation RMSE: **1090.41**
+- Validation R²: **0.5962** (explains 59.6% of sales variance)
+- Validation MAE: **794.26**
+
+**Model Ready for Submission** ✓
+
+## How to Submit
+
+1. Download `final_submission.csv` from submissions folder
+2. Go to [DSN Bootcamp Kaggle Competition](www.kaggle.com/competitions/dsn-bootcamp-qualification-hackathon-2026-ml-track/overview/citation)
+3. Upload submission and compete on leaderboard
 
 ## How to Run
 ```bash
